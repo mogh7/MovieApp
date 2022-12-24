@@ -10,7 +10,6 @@ import 'package:move_app/class/storge.dart';
 import 'package:move_app/main.dart';
 import 'package:move_app/providers/api_get.dart';
 import 'package:move_app/screens/MovieDetails.dart';
-import 'package:sqflite/sqflite.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -18,7 +17,6 @@ class HomePage extends StatefulWidget {
   late Object redrawMovie = Object();
   late Object redrawGenarMovie = Object();
   static late List<Map<String, dynamic>> likeList;
-  static late Database db;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -33,7 +31,6 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     futerMovie = futchMovieList(MyApp.url);
     MovieWithGenre = futchMovieWithGenre(MyApp.Movie_genre_id);
-    openDb();
     readMovieLike();
   }
 

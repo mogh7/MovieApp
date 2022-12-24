@@ -7,6 +7,7 @@ import 'package:move_app/class/storge.dart';
 import 'package:move_app/providers/api_get.dart';
 import 'package:move_app/screens/favoritePage.dart';
 import 'package:move_app/screens/homePage.dart';
+import 'package:sqflite/sqflite.dart';
 
 import 'Widget/genresList.dart';
 
@@ -15,19 +16,18 @@ void main() {
   runApp(SplashScreen());
 }
 
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
-
-  @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
+  static late Database db;
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
       nextScreen: MyApp(),
       splash: Lottie.asset("assets/movie_splach.json"),
+      animationDuration: Duration(seconds: 2),
+      function: () async {
+        await openDb();
+      },
     );
   }
 }

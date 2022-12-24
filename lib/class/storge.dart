@@ -1,3 +1,4 @@
+import 'package:move_app/main.dart';
 import 'package:move_app/screens/homePage.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart' as path;
@@ -14,17 +15,17 @@ Future<void> openDb() async {
     },
     version: version,
   );
-  HomePage.db = database;
+  SplashScreen.db = database;
 }
 
 //insert MovieLike
 Future<void> insertMovieLike(MovieLike like) async {
-  await HomePage.db.insert(
+  await SplashScreen.db.insert(
     'likeMovie',
     like.toMap(),
     conflictAlgorithm: ConflictAlgorithm.replace,
   );
-  HomePage.likeList = await HomePage.db.rawQuery('SELECT * FROM likeMovie');
+  HomePage.likeList = await SplashScreen.db.rawQuery('SELECT * FROM likeMovie');
 }
 
 //readData
@@ -38,14 +39,14 @@ Future readMovieLike() async {
     version: version,
   );
   // database.rawDelete('DELETE FROM likeMovie');
-  HomePage.likeList = await database.rawQuery('SELECT * FROM likeMovie');
+  HomePage.likeList = await SplashScreen.db.rawQuery('SELECT * FROM likeMovie');
 }
 
 //deleatRaw in dataBase
 Future<void> deleatMovie(int movieId) async {
-  await HomePage.db
+  await SplashScreen.db
       .delete('likeMovie', where: 'MovieId = ?', whereArgs: [movieId]);
-  HomePage.likeList = await HomePage.db.rawQuery('SELECT * FROM likeMovie');
+  HomePage.likeList = await SplashScreen.db.rawQuery('SELECT * FROM likeMovie');
 }
 
 class MovieLike {
