@@ -1,5 +1,7 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:lottie/lottie.dart';
 // ignore: unused_import
 import 'package:move_app/class/storge.dart';
 import 'package:move_app/providers/api_get.dart';
@@ -10,7 +12,24 @@ import 'Widget/genresList.dart';
 
 void main() {
   execute(InternetConnectionChecker());
-  runApp(MyApp());
+  runApp(SplashScreen());
+}
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({Key? key}) : super(key: key);
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedSplashScreen(
+      nextScreen: MyApp(),
+      splash: Lottie.asset("assets/movie_splach.json"),
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {
