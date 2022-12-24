@@ -1,20 +1,17 @@
 import 'dart:convert';
-// ignore: import_of_legacy_library_into_null_safe
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:move_app/Widget/waitAPI.dart';
-
 import 'package:move_app/class/movie.dart';
 
 String APIKey = "6e8bd8ba9562bac423453074f12f8915";
 
 Future<Movie> futchMovieList(String url) async {
-  // ignore: non_constant_identifier_names
-  final response = await http.get(url);
-
+  final response = await http.get(Uri.parse(url));
   if (response.statusCode == 200) {
     return Movie.fromJsonMovieList(jsonDecode(response.body));
   } else {
+    print(response.body);
     throw Exception('Failed to load futchMovieList');
   }
 }

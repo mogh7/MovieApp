@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:move_app/class/storge.dart';
-import 'package:move_app/main.dart';
 import 'package:move_app/screens/homePage.dart';
 
 // ignore: must_be_immutable

@@ -29,8 +29,9 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    futerMovie = futchMovieList(MyApp.url);
-    MovieWithGenre = futchMovieWithGenre(MyApp.Movie_genre_id);
+    futerMovie = futchMovieList(SplashScreen.url);
+    MovieWithGenre = futchMovieWithGenre(SplashScreen.Movie_genre_id);
+    openDb();
     readMovieLike();
   }
 
@@ -58,10 +59,9 @@ class _HomePageState extends State<HomePage> {
                     });
                     setState(() {
                       widget.redrawMovie = Object();
-                      execute(InternetConnectionChecker());
-                      MyApp.url =
+                      SplashScreen.url =
                           "https://api.themoviedb.org/3/movie/now_playing?api_key=6e8bd8ba9562bac423453074f12f8915&language=en-US&page=1";
-                      futerMovie = futchMovieList(MyApp.url);
+                      futerMovie = futchMovieList(SplashScreen.url);
                       categoryList.elementAt(0).isSelected = true;
                     });
                   },
@@ -75,9 +75,9 @@ class _HomePageState extends State<HomePage> {
                     setState(() {
                       widget.redrawMovie = Object();
                       execute(InternetConnectionChecker());
-                      MyApp.url =
+                      SplashScreen.url =
                           "https://api.themoviedb.org/3/trending/movie/week?api_key=6e8bd8ba9562bac423453074f12f8915";
-                      futerMovie = futchMovieList(MyApp.url);
+                      futerMovie = futchMovieList(SplashScreen.url);
                       categoryList.elementAt(1).isSelected = true;
                     });
                   },
@@ -91,9 +91,9 @@ class _HomePageState extends State<HomePage> {
                     setState(() {
                       widget.redrawMovie = Object();
                       execute(InternetConnectionChecker());
-                      MyApp.url =
+                      SplashScreen.url =
                           "https://api.themoviedb.org/3/movie/popular?api_key=6e8bd8ba9562bac423453074f12f8915&language=en-US&page=1";
-                      futerMovie = futchMovieList(MyApp.url);
+                      futerMovie = futchMovieList(SplashScreen.url);
                       categoryList.elementAt(2).isSelected = true;
                     });
                   },
@@ -107,9 +107,9 @@ class _HomePageState extends State<HomePage> {
                     setState(() {
                       widget.redrawMovie = Object();
                       execute(InternetConnectionChecker());
-                      MyApp.url =
+                      SplashScreen.url =
                           "https://api.themoviedb.org/3/movie/upcoming?api_key=6e8bd8ba9562bac423453074f12f8915&language=en-US&page=1";
-                      futerMovie = futchMovieList(MyApp.url);
+                      futerMovie = futchMovieList(SplashScreen.url);
                       categoryList.elementAt(3).isSelected = true;
                     });
                   },
@@ -129,6 +129,7 @@ class _HomePageState extends State<HomePage> {
             future: futerMovie,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
+                print('hasdata');
                 return Container(
                   height: MediaQuery.of(context).size.height / 2.6,
                   child: ListView.builder(
@@ -239,13 +240,13 @@ class _HomePageState extends State<HomePage> {
                     ]),
                     child: DropdownButton<String>(
                       onChanged: (String? value) {
-                        MyApp.Movie_genre_id = genre_Movie_id_list
+                        SplashScreen.Movie_genre_id = genre_Movie_id_list
                             .elementAt(genreMovielist.indexOf(value!));
                         setState(() {
                           widget.redrawGenarMovie = Object();
-                          MyApp.dropDownMovie = value;
+                          SplashScreen.dropDownMovie = value;
                           MovieWithGenre =
-                              futchMovieWithGenre(MyApp.Movie_genre_id);
+                              futchMovieWithGenre(SplashScreen.Movie_genre_id);
                         });
                       },
                       elevation: 16,
@@ -253,7 +254,7 @@ class _HomePageState extends State<HomePage> {
                         height: 2,
                         color: Colors.deepPurpleAccent,
                       ),
-                      value: MyApp.dropDownMovie,
+                      value: SplashScreen.dropDownMovie,
                       items: genreMovielist
                           .map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(

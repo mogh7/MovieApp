@@ -39,7 +39,7 @@ Future readMovieLike() async {
     version: version,
   );
   // database.rawDelete('DELETE FROM likeMovie');
-  HomePage.likeList = await SplashScreen.db.rawQuery('SELECT * FROM likeMovie');
+  HomePage.likeList = await database.rawQuery('SELECT * FROM likeMovie');
 }
 
 //deleatRaw in dataBase

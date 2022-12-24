@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:move_app/Widget/bottonNav.dart';
 import 'package:move_app/Widget/cardWidget.dart';
