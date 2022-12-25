@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class BottomNavBarFb3 extends StatelessWidget {
   BottomNavBarFb3({Key? key}) : super(key: key);
 
-  final primaryColor = const Color(0xff4338CA3f97de);
+  final primaryColor = Color.fromRGBO(63, 151, 222, 0.792);
   static bool isFavorite = false;
   static bool isHome = true;
 

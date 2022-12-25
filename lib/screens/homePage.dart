@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:move_app/Widget/categoryCard.dart';
 import 'package:move_app/Widget/bottonNav.dart';
 import 'package:move_app/Widget/cardWidget.dart';
@@ -40,7 +41,10 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       bottomNavigationBar: BottomNavBarFb3(),
       appBar: AppBar(
-        title: Text("Movie App"),
+        title: Image.asset(
+          'assets/icons-popcorn.png',
+          scale: 1.5,
+        ),
         centerTitle: true,
       ),
       body: ListView(
@@ -121,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                   offset: const Offset(5, 5),
                   blurRadius: 50,
                   spreadRadius: 0,
-                  color: BottomNavBarFb3().primaryColor.withOpacity(.2)),
+                  color: BottomNavBarFb3().primaryColor.withOpacity(.3)),
             ]),
           ),
           FutureBuilder<Movie>(

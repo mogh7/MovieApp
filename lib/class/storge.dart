@@ -3,15 +3,15 @@ import 'package:move_app/screens/homePage.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart' as path;
 
-int version = 2;
+int version = 3;
 
 //open database
 Future<void> openDb() async {
   Database database = await openDatabase(
-    path.join(await getDatabasesPath(), 'Like.db'),
+    path.join(await getDatabasesPath(), 'Like1.db'),
     onCreate: (db, version) async {
-      await db.execute(
-          'CREATE TABLE likeMovie (id INTEGER PRIMARY KEY, MovieId INTEGER, posterPath TEXT)');
+      await db
+          .execute('CREATE TABLE likeMovie (MovieId INTEGER, posterPath TEXT)');
     },
     version: version,
   );
@@ -31,10 +31,10 @@ Future<void> insertMovieLike(MovieLike like) async {
 //readData
 Future readMovieLike() async {
   Database database = await openDatabase(
-    path.join(await getDatabasesPath(), 'Like.db'),
+    path.join(await getDatabasesPath(), 'Like1.db'),
     onCreate: (db, version) async {
-      await db.execute(
-          'CREATE TABLE likeMovie (id INTEGER PRIMARY KEY, MovieId INTEGER, posterPath TEXT)');
+      await db
+          .execute('CREATE TABLE likeMovie (MovieId INTEGER, posterPath TEXT)');
     },
     version: version,
   );
