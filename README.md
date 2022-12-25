@@ -1,7 +1,9 @@
 # move_app
  
-# بعض من واجهه التطبيق 
-
+ 
+# مشاركتنا في مسابقة فلاتر لبناء تطبيق افلام بستخدام API وتعلم حفظ البيانات في قواعد بيانات 
+# اشكر عقول لعمل هذي المسابقة الرائعة لتعلم اكثر عن فلاتر 
+# بعض من واجهه التطبيق
 <p align="center">
   <img src="https://user-images.githubusercontent.com/109889616/209463589-34a00fa8-ba9a-4d1e-9724-77fced26db8d.png" width="300" height="700" />   <img src="https://user-images.githubusercontent.com/109889616/209463885-878631ab-b725-4cbf-b252-9acc18397b91.png" width="300" height="700" />
 </p>
