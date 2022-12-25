@@ -16,12 +16,12 @@ Future<Movie> futchMovieList(String url) async {
 }
 
 Future<Movie> futchMovieWithGenre(int id_genra) async {
-  final response = await http.get(
+  final response = await http.get(Uri.parse(
       "https://api.themoviedb.org/3/discover/movie?api_key=" +
           APIKey +
           "&language=en&sort_by=popularity.desc&with_genres=" +
           id_genra.toString() +
-          "&page=1&&with_watch_monetization_types=flatrate");
+          "&page=1&&with_watch_monetization_types=flatrate"));
 
   if (response.statusCode == 200) {
     return Movie.gitGenresMovie(jsonDecode(response.body));
@@ -31,11 +31,12 @@ Future<Movie> futchMovieWithGenre(int id_genra) async {
 }
 
 Future<Movie> futchMovieDetils(int Movie_id) async {
-  final response = await http.get("https://api.themoviedb.org/3/movie/" +
-      Movie_id.toString() +
-      "?api_key=" +
-      APIKey +
-      "&language=en&append_to_response=casts");
+  final response = await http.get(Uri.parse(
+      "https://api.themoviedb.org/3/movie/" +
+          Movie_id.toString() +
+          "?api_key=" +
+          APIKey +
+          "&language=en&append_to_response=casts"));
 
   if (response.statusCode == 200) {
     return Movie.gitMovieDetils(jsonDecode(response.body));
