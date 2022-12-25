@@ -129,7 +129,6 @@ class _HomePageState extends State<HomePage> {
             future: futerMovie,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                print('hasdata');
                 return Container(
                   height: MediaQuery.of(context).size.height / 2.6,
                   child: ListView.builder(

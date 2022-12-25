@@ -38,7 +38,7 @@ class _MovieDetailsState extends State<MovieDetails> {
   Widget build(BuildContext context) {
     isLike =
         HomePage.likeList.any((element) => element['MovieId'] == widget.id);
-    print(isLike);
+
     return SafeArea(
       child: Scaffold(
         body: Stack(

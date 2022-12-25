@@ -11,7 +11,6 @@ Future<Movie> futchMovieList(String url) async {
   if (response.statusCode == 200) {
     return Movie.fromJsonMovieList(jsonDecode(response.body));
   } else {
-    print(response.body);
     throw Exception('Failed to load futchMovieList');
   }
 }
