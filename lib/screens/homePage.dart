@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:line_icons/line_icons.dart';
 import 'package:move_app/Widget/categoryCard.dart';
 import 'package:move_app/Widget/bottonNav.dart';
 import 'package:move_app/Widget/cardWidget.dart';
