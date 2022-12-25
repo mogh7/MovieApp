@@ -2,14 +2,10 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:lottie/lottie.dart';
-import 'package:move_app/class/movie.dart';
-// ignore: unused_import
-import 'package:move_app/class/storge.dart';
 import 'package:move_app/providers/api_get.dart';
 import 'package:move_app/screens/favoritePage.dart';
 import 'package:move_app/screens/homePage.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:path/path.dart' as path;
 import 'Widget/genresList.dart';
 
 void main() {
@@ -42,15 +38,13 @@ class SplashScreen extends StatelessWidget {
             borderRadius: BorderRadius.circular(25.0),
             boxShadow: [
               BoxShadow(
-                color: Color.fromARGB(255, 19, 97, 99).withOpacity(.4),
-                blurRadius: 50,
+                color: Color.fromARGB(255, 19, 97, 99).withOpacity(1),
+                blurRadius: 100,
                 spreadRadius: 0,
               )
             ],
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Expanded(
                 child: Lottie.asset("assets/movie_splash1.json"),

@@ -274,7 +274,7 @@ class _HomePageState extends State<HomePage> {
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return Container(
-                  height: MediaQuery.of(context).size.height / 3.6,
+                  height: MediaQuery.of(context).size.height / 2.6,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: snapshot.data!.genresMovie!.length,
@@ -296,7 +296,7 @@ class _HomePageState extends State<HomePage> {
                               .map((e) => e['vote_average'])
                               .elementAt(index)
                               .toString(),
-                          height: MediaQuery.of(context).size.height / 3.6,
+                          height: MediaQuery.of(context).size.height / 2.6,
                           onTap: () => Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
@@ -333,7 +333,7 @@ class _HomePageState extends State<HomePage> {
                               Text("Connected to the internet"),
                             ],
                           ),
-                    height: MediaQuery.of(context).size.height / 3.6,
+                    height: MediaQuery.of(context).size.height / 2.6,
                     color: Colors.deepPurple);
               }
 
@@ -343,7 +343,7 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.white,
                 )),
                 color: Colors.deepPurple,
-                height: MediaQuery.of(context).size.height / 3.6,
+                height: MediaQuery.of(context).size.height / 2.6,
               );
             },
           ),
